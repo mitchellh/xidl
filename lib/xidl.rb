@@ -1,5 +1,9 @@
 module XIDL
   autoload :Document, 'xidl/document'
+  autoload :Enum, 'xidl/enum'
+  autoload :IDL, 'xidl/idl'
+  autoload :Library, 'xidl/library'
+  autoload :Result, 'xidl/result'
 
   # Parse the given XIDL file and return the parsed version
   # of it.
@@ -14,6 +18,6 @@ module XIDL
     doc = Document.new
     parser = Nokogiri::XML::SAX::Parser.new(doc)
     parser.parse(File.read(file))
-    doc
+    doc.idl
   end
 end
