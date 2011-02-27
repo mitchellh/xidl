@@ -151,5 +151,103 @@ module XIDL
       @const.description.strip! if @const
     end
     # </enum></library></idl>
+
+    # <idl><library><interface>
+    def start_element_idl_library_interface(attrs)
+      @interface = Interface.new
+      @interface.name = attrs["name"]
+      @interface.extends = attrs["extends"]
+      @library.interfaces << @interface
+    end
+
+    def end_element_idl_library_interface
+      @interface = nil
+    end
+
+    def start_element_idl_library_interface_desc(_attrs)
+      @interface.description = ""
+    end
+
+    def characters_idl_library_interface_desc(string)
+      @interface.description += string
+    end
+
+    def end_element_idl_library_interface_desc
+      @interface.description.strip!
+    end
+
+    def start_element_idl_library_interface_attribute(attrs)
+      @attribute = Interface::Attribute.new
+      @attribute.name = attrs["name"]
+      @attribute.type = attrs["type"]
+      @attribute.mod = attrs["mod"] if attrs.has_key?("mod")
+      @attribute.readonly = attrs["readonly"] == "yes"
+      @attribute.safearray = attrs["safearray"] == "yes"
+
+      @interface.attributes << @attribute
+    end
+
+    def end_element_idl_library_interface_attribute
+      @attribute = nil
+    end
+
+    def start_element_idl_library_interface_attribute_desc(_attrs)
+      @attribute.description = ""
+    end
+
+    def characters_idl_library_interface_attribute_desc(string)
+      @attribute.description += string
+    end
+
+    def end_element_idl_library_interface_attribute_desc
+      @attribute.description.strip!
+    end
+
+    def start_element_idl_library_interface_method(attrs)
+      @method = Interface::Method.new
+      @method.name = attrs["name"]
+      @interface.methods << @method
+    end
+
+    def end_element_idl_library_interface_method
+      @method = nil
+    end
+
+    def start_element_idl_library_interface_method_desc(_attrs)
+      @method.description = ""
+    end
+
+    def characters_idl_library_interface_method_desc(string)
+      @method.description += string
+    end
+
+    def end_element_idl_library_interface_method_desc
+      @method.description.strip!
+    end
+
+    def start_element_idl_library_interface_method_param(attrs)
+      @param = Interface::Method::Param.new
+      @param.name = attrs["name"]
+      @param.type = attrs["type"]
+      @param.dir = attrs["dir"]
+      @method.params << @param
+    end
+
+    def end_element_idl_library_interface_method_param
+      @param = nil
+    end
+
+    def start_element_idl_library_interface_method_param_desc(_attrs)
+      @param.description = ""
+    end
+
+    def characters_idl_library_interface_method_param_desc(string)
+      @param.description += string
+    end
+
+    def end_element_idl_library_interface_method_param_desc
+      @param.description.strip!
+    end
+    # </interface></library></idl>
   end
 end

@@ -5,6 +5,7 @@ module XIDL
     attr_reader :description
     attr_reader :results
     attr_reader :enums
+    attr_reader :interfaces
 
     def initialize(name, version, description)
       @name = name
@@ -12,6 +13,7 @@ module XIDL
       @description = description
       @results = []
       @enums = []
+      @interfaces = []
     end
   end
 end

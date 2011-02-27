@@ -2,6 +2,7 @@ module XIDL
   autoload :Document, 'xidl/document'
   autoload :Enum, 'xidl/enum'
   autoload :IDL, 'xidl/idl'
+  autoload :Interface, 'xidl/interface'
   autoload :Library, 'xidl/library'
   autoload :Result, 'xidl/result'
 
