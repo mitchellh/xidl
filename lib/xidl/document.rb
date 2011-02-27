@@ -157,6 +157,7 @@ module XIDL
       @interface = Interface.new
       @interface.name = attrs["name"]
       @interface.extends = attrs["extends"]
+      @interface.id = attrs["id"] if attrs.has_key?("id")
       @library.interfaces << @interface
     end
 

@@ -3,6 +3,7 @@ module XIDL
     attr_accessor :name
     attr_accessor :extends
     attr_accessor :description
+    attr_accessor :id
     attr_reader :attributes
 
     def initialize
