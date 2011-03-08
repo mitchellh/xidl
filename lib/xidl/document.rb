@@ -15,7 +15,8 @@ module XIDL
     end
 
     def end_document
-      p @unhandled
+      # TODO: Put this in a logger or something
+      # p @unhandled
     end
 
     def start_element(name, attrs=[])
