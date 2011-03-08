@@ -5,9 +5,11 @@ module XIDL
     attr_accessor :description
     attr_accessor :id
     attr_reader :attributes
+    attr_reader :methods
 
     def initialize
       @attributes = []
+      @methods = []
     end
 
     class Attribute
