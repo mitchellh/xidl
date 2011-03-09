@@ -106,6 +106,7 @@ module XIDL
     def start_element_idl_library_enum(attrs)
       @enum = Enum.new
       @enum.name = attrs["name"]
+      @enum.uuid = attrs["uuid"] if attrs.has_key?("uuid")
 
       @library.enums << @enum
     end
