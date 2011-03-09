@@ -233,6 +233,7 @@ module XIDL
       @param.name = attrs["name"]
       @param.type = attrs["type"]
       @param.dir = attrs["dir"]
+      @param.safearray = attrs["safearray"] == "yes"
       @method.params << @param
     end
 

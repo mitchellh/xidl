@@ -34,6 +34,7 @@ module XIDL
         attr_accessor :name
         attr_accessor :type
         attr_accessor :dir
+        attr_accessor :safearray
         attr_accessor :description
       end
     end
