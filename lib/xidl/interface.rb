@@ -3,7 +3,7 @@ module XIDL
     attr_accessor :name
     attr_accessor :extends
     attr_accessor :description
-    attr_accessor :id
+    attr_accessor :uuid
     attr_reader :attributes
     attr_reader :methods
 
